@@ -1,7 +1,5 @@
 package lib;
 import user.User;
-
-import javax.xml.datatype.DatatypeConstants;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +33,7 @@ public class DataGenerator {
         user.setUserStatus(0);
         return  user;
     }
+
 
     public static Map<String, String> getBodyData(User user){
         Map<String, String> data = new HashMap<>();

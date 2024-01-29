@@ -29,9 +29,12 @@ public class ApiRequests {
     }
 
     @Step("Make a GET-request Login")
-    public Response login(String url, Map<String,String> headersData){
+    public Response login(String url, Map<String,String> headersData, String username, String password){
         return given()
                 .filter(new AllureRestAssured())
+                .given()
+                .queryParam("username", username)
+                .queryParam("password", password)
                 .headers(headersData)
                 .get(url)
                 .andReturn();
@@ -43,6 +46,15 @@ public class ApiRequests {
                 .filter(new AllureRestAssured())
                 .headers(headersData)
                 .get(url)
+                .andReturn();
+    }
+
+    @Step("Make a DELETE-request del user")
+    public Response deleteUser(String url, Map<String,String> headersData){
+        return given()
+                .filter(new AllureRestAssured())
+                .headers(headersData)
+                .delete(url)
                 .andReturn();
     }
 
